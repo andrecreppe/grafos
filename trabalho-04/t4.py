@@ -24,6 +24,9 @@ class Graph:
 
 # ================================================================= #
 
+# ENTREGA PADRÃO = ARVORE GERADORA MINIMA
+# ENTREGA VIP = QUALQUER BUSCA (DJIKSTRA)
+
 ## Read local file or execute in RunCodes enviroment ##
 
 runcodes = False
