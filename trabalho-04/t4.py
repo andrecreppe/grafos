@@ -22,6 +22,11 @@ class Graph:
         print('Graph (List Representation):')
         print(printString)
 
+
+def generateMGT(graph: Graph):
+   return []
+
+
 # ================================================================= #
 
 # ENTREGA PADRÃO = ARVORE GERADORA MINIMA
