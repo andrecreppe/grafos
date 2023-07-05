@@ -28,3 +28,4 @@ dest = input()
 ## PROBLEM BELOW ##
 
 graph.printGraph()
+print(gh.generateMST(graph))
