@@ -23,12 +23,9 @@ goal = input()
 mst_cost = gh.generateMST(graph = graph)
 vip_cost = gh.dijkstraDist(graph = graph, goal = int(goal))
 
-print(f'mst = {mst_cost}')
-print(f'vip = {vip_cost}')
-
-# if mst_cost < vip_cost:
-#     print('PADRAO')
-#     print(mst_cost)
-# else:
-#     print('VIP')
-#     print(vip_cost)
+if mst_cost < vip_cost:
+    print('PADRAO')
+    print(mst_cost)
+else:
+    print('VIP')
+    print(vip_cost)

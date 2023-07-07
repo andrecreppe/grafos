@@ -66,6 +66,7 @@ def generateMST(graph: Graph):
 
 def dijkstra(graph: Graph, start: int):
     distances = {vertex: float('inf') for vertex in range(graph.size)}
+    previous = {vertex: None for vertex in range(graph.size)}
 
     distances[start] = 0
     pq = [(0, start)]
@@ -78,19 +79,27 @@ def dijkstra(graph: Graph, start: int):
 
         for neighbor, weight in graph.edges[current_vertex]:
             distance = current_dist + weight
+            
+            if previous[neighbor] == None:
+                previous[neighbor] = current_vertex
 
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 heapq.heappush(pq, (distance, neighbor))
 
-    return distances
+    return [distances, previous]
 
 
 def dijkstraDist(graph: Graph, goal: int):
-    distances = dijkstra(graph = graph, start = 0)
+    [distances, previous] = dijkstra(graph = graph, start = 0) # find the cost and the previous node
 
-    print(distances)
+    count = 1
+    current = goal
+    while current != 0: # count how many nodes our path passes though
+        count += 1
+        current = previous[current]
+
+    remaining = graph.size - count
+    vip_cost = remaining * distances[goal] # vip cost = remaining cities * cost to vip delivery
     
-    # goal_dist = distances[goal]
-    
-    return 0000000000000
+    return vip_cost
