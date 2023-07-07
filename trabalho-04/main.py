@@ -1,31 +1,34 @@
-import os
 import Graph as gh
-
-# ================================================================= #
-
-# ENTREGA PADRÃO = ARVORE GERADORA MINIMA
-# ENTREGA VIP = QUALQUER BUSCA (DJIKSTRA)
-
 
 ## Load Grpah Info ##
 
 v, a = input().split()
 
-## Populate the Graph with data ##
+## Populate the Graph with Data ##
 
 graph = gh.Graph(v = int(v))
 
 for i in range(int(a)):
-    
     u, v, w = input().split()
-
     graph.addEdge(int(u), int(v), int(w))
+
+# graph.printGraph()
 
 ## Goal Input ##
 
-dest = input()
+goal = input()
 
-## PROBLEM BELOW ##
+## Problem Solving ##
 
-graph.printGraph()
-print(gh.generateMST(graph))
+mst_cost = gh.generateMST(graph = graph)
+vip_cost = gh.dijkstraDist(graph = graph, goal = int(goal))
+
+print(f'mst = {mst_cost}')
+print(f'vip = {vip_cost}')
+
+# if mst_cost < vip_cost:
+#     print('PADRAO')
+#     print(mst_cost)
+# else:
+#     print('VIP')
+#     print(vip_cost)
